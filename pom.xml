@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uk.anbu.maven.monorepo.sample</groupId>
+    <artifactId>monorepo-build-sample</artifactId>
+    <version>${revision}</version>
+    <name>Monorepo Build Sample Project</name>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <revision>1.0.1</revision>
+    </properties>
+
+    <modules>
+        <module>lib-a</module>
+        <module>lib-b</module>
+        <module>app-1</module>
+        <module>app-2</module>
+        <module>app-3</module>
+        <module>sub-parent-x</module>
+        <module>sub-parent-y</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>uk.anbu.maven.monorepo</groupId>
+                <artifactId>monorepo-build</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </plugin>
+            <!-- maven versions plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
